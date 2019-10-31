@@ -1,0 +1,21 @@
+\chapter{Upper Limits}
+
+The suggested method: 
+
+\begin{equation}
+F = \frac { \left. \frac { d \Phi } { d \mathrm { E } } \right| _ { 1 \mathrm { TeV } } } { \left. \left( \frac { \mathrm { E } } { \mathrm { GeV } } \right) \right| _ { 1 \mathrm { TeV } } ^ { - 2 } \cdot \sum _ { i = 1 } ^ { N _ { c a n d } } \frac { \text { oneWeight } } { N _ { g e n } \cdot \Delta \Omega } \cdot \Delta T }
+\end{equation}
+
+While I think this would work, it might be easier understood with the effective area, $A_{eff}$. The main reason for this rephrasing is that your underlying flux model has a non-trivial temporal shape, and this method will just find some scaling factor between number of injected events, $n_s$ and total time integrated energy flux, $E^2F$. For a given flux and effective area, we have that the expected number of signal events is 
+
+\begin{equation}
+    N = \int E \frac{d \phi(E,t)}{dE} A_{eff}(E) \;  dE \; dt
+\end{equation}
+
+Plugging in our specific spectral shape you get
+
+\begin{equation}
+    N = \phi_0 \int \Big( \frac{E}{E_0} \Big)^{-2} f(t) E A_{eff}(E) \; dE dt \; .
+\end{equation}
+
+Where $A_{eff}$ is obtained from MC events using the methodology you suggest in a specific declination band (but depending on the units that oneWeight carries, the solid angle factor might need to be $4\pi / \Delta \Omega$ not just $\Delta \Omega$.

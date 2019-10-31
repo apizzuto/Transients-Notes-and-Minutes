@@ -1,0 +1,20 @@
+\chapter{May 24, 2019}
+
+\section{Gravitational Waves}
+
+We discussed ways to incorporate the distance maps into the upper limit calculations for isotropic equivalent energy. To begin, we know that the isotropic equivalent energy, $E_{iso}$, is given by \begin{equation}
+    \frac{E_{iso}}{4 \pi r^2} = \int_0^{E_{max}} \phi(E) \cdot E \cdot dE = c\cdot \phi_0
+\end{equation}
+Where $r$ is a fixed distance. The distance PDF is a 3D PDF, but we can normalize 
+\begin{equation}
+    1 = \int P(r, \alpha, \delta) \cos\delta \cdot d\alpha d\delta dr (\times r^2)
+\end{equation}
+where the additional $r^2$ is a choice of convention. 
+
+When then perform our upper limit calculation:
+\begin{align*}
+    2.3 = \mu &= \int A_{eff}(\delta, E) \phi(E) P(r, \alpha, \delta) dE \; d\Omega \\
+    &= \int  A_{eff}(\delta, E) P(r, \alpha, \delta) \Big(\frac{E}{E_0}\Big)^{-2} \frac{E_{iso}}{c 4\pi r^2} dE \; d\Omega \; ,
+\end{align*} 
+
+and tune $E_{iso}$.

@@ -1,0 +1,26 @@
+\chapter{June 10, 2019}
+
+\section{Raamis Revisits Upper Limits}
+Last time, we discussed upper limits using the full distance information in Raamis's analysis. This is what he worked out a bit more rigorously. In this situation, instead of integrating across the sky, the integration is done over the events (subscript $i$).
+
+\begin{align*}
+    \frac{E_{iso}}{4\pi r^2} &= \int \phi(E)E dE \\
+    &= \int \Delta t \Big(\frac{E}{E_0}\Big)^{-2}EdE \; = \; E_0^2A\ln (E)|^2_1 \times \Delta t \\
+    \Rightarrow E_{iso} &= 4 \pi r^2 \Delta t E_0^2 A \ln (E)|^2_1
+\end{align*}
+
+Instead of including the effective area, as suggested previously, you can sum over your Monte Carlo events:
+
+\begin{align*}
+    \mu &= \sum_i \text{ow}_i \int A \Delta t \Big(\frac{E_i}{E_0}\Big)^{-2} \frac{P(\Omega)}{A_{pix}}P(r|\alpha, \delta) dr\\
+    &= \sum_i \text{ow}_i \int \Delta t \Big(\frac{E_i}{E_0}\Big)^{-2} \times \frac{E_{iso}P(\Omega)P(r|\alpha, \delta)}{4\pi r^2 \Delta t E_0^2 A \ln (E)|^2_1 A_{pix}} dr \\ 
+    &= \sum_i \text{ow}_i \int E_i^{-2} \times \frac{E_{iso}P(\Omega)P(r|\alpha, \delta)}{4\pi r^2 A \ln (E)|^2_1 A_{pix}} dr \\
+    &= \sum_i \text{ow}_i \frac{E_i^{-2}E_{iso}P(\Omega)}{4\pi \ln(E)|^2_1 A_{pix}} \times \int \frac{d_{norm}}{r^2}r^2 \exp\Big[ \frac{-(r-d_{\mu})^2}{2 d_{\sigma}^2} \Big] dr
+\end{align*}
+
+Call the integral in the last line $I$, then for a 90\% upper limit on a non-observation, we get
+
+\begin{equation}
+    \label{eq:GW_upper_limit}
+    \dfrac{2.3}{\sum_i \text{ow}_i \dfrac{E_i^{-2}P(\Omega)}{4\pi \ln(E)|^2_1 A_{pix}}I} = E_{iso}
+\end{equation}

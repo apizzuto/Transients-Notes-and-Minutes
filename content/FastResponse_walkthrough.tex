@@ -1,0 +1,51 @@
+\chapter{GRBLLH Fast Response Walkthrough}
+
+Hey all, I'm headed out of town for 5 days (and will likely be without internet), so I wanted to write a brief how to in case there is an IceCube alert event and we need the fast response analysis. 
+
+First, we want \texttt{py2-v3}:
+\begin{lstlisting}[language=bash]
+eval `/cvmfs/icecube.opensciencegrid.org/py2-v3/setup.sh`
+\end{lstlisting}
+
+Next, you want to initialize a specific \texttt{icetray} and go to the virtual environment I set up for just this purpose: 
+
+\begin{lstlisting}[language=bash]
+/data/user/apizzuto/software/icerec_V05_02/build/env-shell.sh 
+source /home/apizzuto/.venvs/fast_response/bin/activate
+\end{lstlisting}
+
+Next, go to my directory where I have the fast response scripts (these also exist in the \texttt{icerec} environment, but I run the ones in my \texttt{/data/user/} because it's a copied version of a stable release and the one in my \texttt{icerec} is analogous to the trunk: 
+
+\begin{lstlisting}[language=bash]
+cd /data/user/apizzuto/fast_response_code/
+\end{lstlisting}
+
+I changed permissions just now so that everyone has read/write permissions in this directory. I'll change it back when I get back. Next, run the actual analysis. This is the code I used to run the analysis for the last IceCube event followup. 
+
+\begin{lstlisting}[language=bash]
+python run.py --ra=65.7866 --dec=-37.4431 --sigma=1.2 
+--skip-events=132518:766165 --start="2019-05-03 18:26:49" 
+--stop="2019-05-05 18:26:49" --name="IceCube 190504A Two Day"
+\end{lstlisting}
+
+\texttt{ra} and \texttt{dec} are the coordinates in degrees, \texttt{sigma} is the source extension in degrees (for IceCube events, the 90\% containment assuming the contour is radially symmetric). \texttt{skip-events} is the runID and eventID of the HESE or EHE event, just in case it ended up in the GFU sample. This can be found in the \texttt{Bacodine} email that gets sent to icecube-c, or by finding the event in \href{https://live.icecube.wisc.edu/auth/?next=/realtime/}{IceCube live}. 
+
+This will calculate $TS$ and $n_s$ for the analysis and will create a subdirectory with the analysisID. If $p=1.0$, then you can calculate the upper limits right away: 
+
+\begin{lstlisting}[language=bash]
+python upper-limit.py $ANALYSISID
+\end{lstlisting}
+
+where \texttt{\$ANALYSISID} is the name of the subdirectory that was created. You can pass \texttt{trials=1000000} if you only want 1e6 trials, otherwise, it does 1e7. If you have a p value that is not 1, then you must first run the background trials: 
+
+\begin{lstlisting}[language=bash]
+python bg-trials.py $ANALYSISID
+\end{lstlisting}
+
+and then after this you would run the upper limit script. Once you have an upper limit, create the report:
+
+\begin{lstlisting}[language=bash]
+python report.py $ANALYSISID
+\end{lstlisting}
+
+Now, in the analysis subdirectory, there will be a \texttt{\$ANALYSISID\_report.pdf}, and this should be the final report. I tend to copy this into my \texttt{public-html}, but you could also just \texttt{scp} it. Then you should be done. Feel free to edit the wiki and upload to the Google Drive, or ask me and I can do it when I get back. Templates for GCN circulars are linked on the wiki, or can be found directly \href{https://wiki.icecube.wisc.edu/index.php/Fast_Response_ATel_and_GCN_Templates}{here}.

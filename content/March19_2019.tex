@@ -1,0 +1,82 @@
+\chapter{March 19, 2019}
+
+\section{ANITA Paper \& Regeneration}
+\label{ANITA}
+We had a ``brief'' discussion of the ANITA work (1 hour). We mainly discussed some subtleties that surfaced last Friday. 
+
+\subsection*{\textbf{Instantaneous Data Quality}}
+This depends on the final $N_{i3}$ that Ibrahim calculates, but we may be in a few different regimes for expected number of signal events. First, if the number of events would flood the detector on short timescales, we need to make sure that there are no detector failures (JEB failures). We might also be in the realm where the total integrated charge exceeds the EHE threshold, so we may want to make sure there are no EHE events. Third, events could not pass our analysis cuts, or finally, we might get lucky and get the perfect expected number of events at analysis level that wouldn't flood the detector. Ideally, we would look at lower level data to investigate this, but should not do that before asking WG leads. 
+
+\subsection*{\textbf{Opening Angle}}
+We have been neglecting the opening angle of the interactions along the trajectories. We can figure out if this is an important effect by doing a back of the envelope (there are methods that exist for approximating this with widening Gaussians). 
+
+To do this rigorously, Ibrahim will need to save the intermediate energies along paths, and sample from opening angle distributions (or just take the RMS angle) and distribute it appropriately in 2 angular dimensions. The extent of the resulting cone will give us a penalty factor on the flux that is actually detectable. 
+
+Sam notes that because we are looking at a flux from a point source, we might not need to do this, for every event scattering out of the line of sight, there will be another event that scatters into it, to first order. 
+
+\subsection*{\textbf{Tracking Secondaries}}
+We should also track $\nu_{\mu}$ and potentially $\mu$ fluxes that are the result of some of the interactions. 
+
+\subsection*{\textbf{Debugging the Code}}
+Ibrahim will continue looking into that bump that is evident when comparing his code to nuFATE for hard spectra. His plot agrees with Mary Hall Reno's paper. Carlos will look into the plotting scripts as well, as he is skeptical of Ibrahim's script. 
+
+\subsection*{\textbf{Remaining Calculations}}
+The main remaining calculation is effective area. Ibrahim and I will work on this. 
+
+\subsection*{\textbf{Paper Planning}}
+I will send an email to Dawn asking for the paper outline to be pushed back. This will give us time to work out with PubCom whether or not we want 2 papers as well as finalize some plots.  
+
+\section{Gravitational Waves}
+\label{GW}
+
+\subsection{\textbf{Erik's Questions}}
+First discussed questions from Erik:
+
+\subsubsection{Q: What is the time for an upper limit or p value?}
+
+Erik seems to advocate for upper limit as a function of declination, a la the other argument in the ANITA debate and some historic papers. 
+
+Right now, calculating upper limits is $\mathcal{O}$(1hour). Raamis could work on speeding this up if we are willing to potentially sacrifice some accuracy.
+
+I proposed looking into what Justin suggested a few weeks ago: calculating an average sensitivity by integrating sensitivity over the LIGO skymap.
+
+\subsubsection{Q: What is the status of automation?}
+Raamis seems ready with the automation. Some things are just being finalized on the realtime nodes. 
+
+Justin asks for a sample GCN with filled in numbers in the case of a detection and non-detection. Raamis has these, but hasn't pushed to a website. 
+
+\subsubsection{Q: Is signalness included?}
+In the case of multiple neutrinos, you would rank it by the local TS. Justin suggests calculating the p-value as if the other events were not there. 
+
+Some other things that came out here: the LLama people have been showing sensitivity as a function of declination of the injected source position. How will they quote an upper limit in the case of an actual detection when the true source position is not available?
+
+\subsection{\textbf{Auto Tests}}
+There are a few problems with interfacing with the realtime nodes, but Raamis is working on this. 
+
+Default suggested by Justin: Launch jobs, p-value comes back in a few minutes from precomputation. If interesting, publish GCN automatically and immediately. If p=1, wait until UL is available, then publish GCN. 
+
+\subsection{\textbf{Discovery Potential and Paper}}
+Doga showed a discovery potential curve, Raamis can digitize this plot to do an overlay with his analysis. 
+
+Strategically, LLAMA might get approval to unblind O2 on Thursday and might start working on a paper. Justin suggested taking a paper outline to Nu-sources on Monday, because we don't want to be in the position where the Columbia group begins a paper and then Raamis starts working on a paper after them even though O2 unblinding was earlier.  Raamis will email WG leads asking for a spot on the Monday call. Possible Proposed Title: \emph{IceCube search for neutrinos in coincidence with the first 11 detected Gravitational Wave Events}.
+
+Raamis is also going to mention the timescale of the analysis in his email to remind people that GFU latency needs to be factored into analyses and that analysis time metrics should be compared to the time after the last relevant data packet is transmitted to the North. 
+
+\section{Raamis' Paper Outline}
+\begin{my_list_item}
+    \item Maybe add that you are open to changing journals
+    \item Add time window to the abstract, get rid of time
+    \item If you are going to describe the Prior, Josh recommended taking a look at Rene's 8 year paper
+    \item Mention that the circles around events are certain percentage (90) uncertainty
+    \item Include an example TS distribution (Justin also suggests including the passing fraction plot)
+    \item Label colorbar. Justin suggests just including the colorbar in the corner of the overall figure, maybe do the same for Equatorial and GFU event
+    \item You could include a slide discussing just using the typical IceCube point source sensitivity but only in the region of the LIGO PDF
+    \item We also discussed doing a similar type of precomputation for signal injection but just for point sources for a bunch of declinations across the sky, not using the Prior Injector. 
+    \item Moving on to analysis specific stuff: Would you be able to update the sensitivity with Doga's new sensitivity?
+    \item If you send this in an email to Erik, would you be able to ask for the skymaps again in that same email?
+    \item It might be worth discussing with Erik and Benedikt about getting a dedicated followup server
+    \item You might want to add some bullet points to the latency slide: add some metrics and some details, mentioning filesystem crashes, both analyses have to wait 500s. Josh thinks you might want to show it on Monday, Justin might want to hold cards close to the chest and not show it yet. 
+    \item Something to think about is maybe building likelihoods before the end of the time window
+    \item Would you be able to check how many CPUs are on the realtime nodes?
+    \item GCN comments: 90 percent PSF is awkward phrasing, if greater than 3 sigma, just say that
+\end{my_list_item}

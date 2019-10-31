@@ -1,0 +1,129 @@
+
+%% LLT: Turn off some annoying warnings...
+\RequirePackage{silence}
+\WarningFilter{titlesec}{Non standard sectioning command}
+\WarningFilter{scrreprt}{Usage of package}
+\WarningFilter{scrreprt}{Activating an ugly workaround}
+% **************************************************
+% Document Class Definition
+% **************************************************
+\documentclass[%
+	paper=A4,					
+	twoside=false,				
+	openright,					% doublepage cleaning ends up right side
+	parskip=full,				% spacing value / method for paragraphs
+	chapterprefix=true,			% prefix for chapter marks
+	12pt,						% font size
+	headings=normal,			% size of headings
+	bibliography=totoc,			% include bib in toc
+	listof=totoc,				% include listof entries in toc
+	titlepage=on,				% own page for each title page
+	captions=tableabove,		% display table captions above the float env
+	draft=false,				% value for draft version
+]{scrreprt}%
+
+\newcommand{\thesisTitle}{Transients Notes}
+\newcommand{\thesisName}{Alex Pizzuto, Justin Vandenbroucke, Sam Fahey, Raamis Hussain, Ali Kheirandish, Ibrahim Safa}
+\newcommand{\thesisSubject}{Notes}
+\newcommand{\thesisDate}{\today}
+\newcommand{\thesisVersion}{Ongoing Draft}
+
+\newcommand{\thesisUniversity}{\protect{University of Wisconsin - Madison}}
+\newcommand{\thesisUniversityDepartment}{Department of Physics}
+\newcommand{\thesisUniversityInstitute}{Wisconsin IceCube Particle Astrophysics Center}
+
+\usepackage[utf8]{inputenc}		% defines file's character encoding
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[					% clean thesis style
+	figuresep=colon,%
+	sansserif=false,%
+	hangfigurecaption=false,%
+	hangsection=true,%
+	hangsubsection=true,%
+	colorize=full,%
+	colortheme=bluemagenta,%
+% LLT: Use biber if using UTF8 encoding
+% 	bibsys=bibtex,%
+	bibsys=biber,%
+	bibfile=bib-refs,%
+	bibstyle=alphabetic,%
+]{cleanthesis}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\hypersetup{					% setup the hyperref-package options
+	pdftitle={\thesisTitle},	% 	- title (PDF meta)
+	pdfsubject={\thesisSubject},% 	- subject (PDF meta)
+	pdfauthor={\thesisName},	% 	- author (PDF meta)
+	plainpages=false,			% 	-
+	colorlinks=false,			% 	- colorize links?
+	pdfborder={0 0 0},			% 	-
+	breaklinks=true,			% 	- allow line break inside links
+	bookmarksnumbered=true,		%
+	bookmarksopen=true,			%
+	colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
+
+\begin{document}
+
+\renewcaptionname{english}{\figurename}{Fig.}
+\renewcaptionname{english}{\tablename}{Tab.}
+
+\pagenumbering{roman}			% roman page numbing (invisible for empty page style)
+\pagestyle{empty}				% no header or footers
+%\input{content/titlepages}		% INCLUDE: all titlepages
+
+\setcounter{tocdepth}{2}		% define depth of toc
+%\tableofcontents				% display table of contents
+
+% --------------------------
+% Body matter
+% --------------------------
+\pagenumbering{arabic}			% arabic page numbering
+\setcounter{page}{1}			% set page counter
+\pagestyle{maincontentstyle} 	% fancy header and footer
+
+%\input{content/March19_2019.tex}
+%\input{content/March26_2019.tex}
+%\input{content/FRB_reviewer_phonecall.tex}
+%\input{content/April_25_2019.tex}
+%\input{content/Madison_Collaboration_Meeting.tex}
+%\input{content/May_9_2019.tex}
+%\input{content/FastResponse_walkthrough.tex}
+%\input{content/May_16_2019.tex}
+%\input{content/May_24_2019.tex}
+%\input{content/June_10_2019.tex}
+%\input{content/UpperLimits_anastasia.tex}
+%\input{content/ICRC_2019.tex}
+%\input{content/MMA_workshop_August2019.tex}
+%\input{content/ChibaMeeting.tex}
+\input{content/Sept26_LIGOCall.tex}
+
+% --------------------------
+% Back matter
+% --------------------------
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\small}
+\setlength{\biblabelsep}{0pt}
+\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+\printbibliography[nottype=online]
+\printbibliography[heading=subbibliography,title={Websites},type=online,prefixnumbers={@}]
+}
+
+%\listoffigures
+
+\end{document}

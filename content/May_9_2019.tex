@@ -1,0 +1,36 @@
+\chapter{May 9, 2019: Meeting Minutes}
+
+\cleanchapterquote{We can have a paper outline ready to go to the analysis call two weeks from today}{Ibrahim Safa}
+
+\section{ANITA Papers}
+We discussed the plot we want from the regeneration work to go into the collaboration paper. Namely, use the upper limit from the point source results over the central 90\% energy range of the point source analysis, and then fit for the ANITA flux to calculate an upper limit and compare to the implied ANITA flux (similar to the HESE plot, but now without the solid angle dependence).
+
+\section{Gravitational Waves}
+Raamis found and fixed a bug in quoting a range of upper limits in his analysis. The bug came from a treatment of quoting the range that didn't account for discontinuous priors. Only one GCN circular was affected. 
+
+\cleanchapterquote{This is definitely right now (I'm at least $3 \sigma$ sure)}{Raamis Hussain}
+
+\vspace{0.01in}
+
+There was a lot of discussion on negative TS values during the collaboration meeting. One method for fixing it:
+
+\begin{equation}
+    \frac{d(TS)}{dn_s} = 2 \left[ -1 + \sum_{i=1}^N\frac{S_i}{n_sS_i + n_bB_i} \right]
+\end{equation}
+
+This leads to some \textit{weird} TS distributions. I asked for what this looks like in terms of number of events. Justin suggests doing a sort of coverage test. In other words, actually inject a physical flux and then see which method recovers the injected flux a higher percentage of the time. 
+
+Using this method, there are 3 different populations for TS values. A peak at $-\infty$ when there are no events on the sky, highly negative values for events nowhere near the contour, and those with events near the contour. At the collaboration meeting, it was decided to write a joint paper with the Columbia folks. Raamis has fixed the rotation for the maps. 
+
+Imre mentioned in the paper potentially also following up the known galaxy location of the BNS and not just the LIGO skymap. 
+
+Justin also had a few suggestions for internal reports: 
+
+\begin{enumerate}
+    \itemsep-0.75em 
+    \item Accounting for multiple updates (Preliminary, initial, etc.). Raamis has implemented this
+    \item Mention that times are UTC (truncate to nearest second)
+    \item Sometimes the date interval on the x-axis is unclear
+    \item The two skymaps are inconsistent in units (one in degrees, the other in hours)
+    \item Per event p-values are only using the best fit location, but I argued that this isn't what the analysis produces in terms of a p-value. It is computationally expensive to evaluate the p-values using only certain events on the sky.
+\end{enumerate}
