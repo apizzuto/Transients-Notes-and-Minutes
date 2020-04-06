@@ -44,14 +44,18 @@
 	colorize=full,%
 	colortheme=bluemagenta,%
 % LLT: Use biber if using UTF8 encoding
-% 	bibsys=bibtex,%
-	bibsys=biber,%
-	bibfile=bib-refs,%
+ 	bibsys=bibtex,%
+%	bibsys=biber,%
+	bibfile=references,%
 	bibstyle=alphabetic,%
 ]{cleanthesis}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{tikz} 
+\usetikzlibrary{shapes,arrows,positioning,automata,backgrounds,calc,er,patterns}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.0.0}
 
 \hypersetup{					% setup the hyperref-package options
 	pdftitle={\thesisTitle},	% 	- title (PDF meta)
@@ -67,6 +71,7 @@
     linkcolor=black,
     filecolor=magenta,      
     urlcolor=cyan,
+    citecolor=magenta
 }
 
 \usepackage{xcolor}
@@ -88,7 +93,7 @@
 %\input{content/titlepages}		% INCLUDE: all titlepages
 
 \setcounter{tocdepth}{2}		% define depth of toc
-%\tableofcontents				% display table of contents
+\tableofcontents				% display table of contents
 
 % --------------------------
 % Body matter
@@ -114,6 +119,10 @@
 \input{content/Sept26_LIGOCall.tex}
 \input{content/GRECO_110119.tex}
 \input{content/GFU_FFT.tex}
+\input{content/Feb_25_2020}
+\input{content/March_3_2020}
+\input{content/Rotating_luminosity_density}
+\input{content/March_31_2020}
 
 % --------------------------
 % Back matter
@@ -123,9 +132,12 @@
 \renewcommand{\bibfont}{\normalfont\small}
 \setlength{\biblabelsep}{0pt}
 \setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
-\printbibliography[nottype=online]
-\printbibliography[heading=subbibliography,title={Websites},type=online,prefixnumbers={@}]
+%\bibliographystyle{abbrv}
+\printbibliography
+%\printbibliography[nottype=online]
+%\printbibliography[heading=subbibliography,title={Websites},type=online,prefixnumbers={@}]
 }
+
 
 %\listoffigures
 

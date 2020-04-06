@@ -1,0 +1,82 @@
+\chapter{February 25, 2020}
+
+\section{Open Topics}
+\label{topics}
+Today we discussed potential topics that a new student could help with. I wasn't sure if the idea was to share this list with a potential student, so each topic has a bit of background provided, as well.
+
+\subsection*{\textbf{GeV Neutrino Astronomy}}
+Although a diffuse flux of high-energy neutrinos ($\mathcal{O}$(TeV - PeV)) has been detected, the sources of these neutrinos remain unknown. While most efforts to identify neutrino sources focus on this high-energy range, where the astrophysical flux is at a level comparable to atmospheric backgrounds, many models predict that objects should emit lower energy ($\mathcal{O}$(1-100 GeV)) neutrinos. While the main in-ice component of IceCube is not sensitive to this energy range, DeepCore (a denser subarray of DOMs situated in the middle of IceCube) could detect these fluxes. DeepCore is primarily used for neutrino oscillation analyses, ie \cite{Aartsen:2017nmd, Aartsen:2019tjl}, but lately there has been an effort to repurpose these datasets for astronomy. The major caveat is that lower energy events are much harder to reconstruct, so the localizations of these events is quite poor (30 degrees on average) compared to high energy tracks (around 1 degree). These are some of the projects related to this effort that we want to work on:
+\begin{itemize}
+    \itemsep-1em
+    \item \textbf{Novae}: Recent Galactic Novae detected in gamma-rays could potentially emit neutrinos \cite{Ackermann:2014vfa, Abdo:2010he, Franckowiak:2017iwj, Li:2017crr, Derdzinski:2016cuw, Metzger:2015zka}
+    \item \textbf{\texttt{OscNext}}: This is a new oscillations sample, we want to see if it is better than our state-of-the-art
+    \item \textbf{Upgrade senstivities}: with the IceCube upgrade in a few years, GeV neutrino astronomy will be even more promising. We want to see how sensitive the upgrade will be to these fluxes
+    \item \textbf{Gravitational Waves}: Repurpose Raamis's GW analysis for lower energies
+    \item \textbf{Time-integrated}: Some objects have been potentially identified at higher energies, we want to see if they are sources at low energies as well. 
+    \item \textbf{Fast radio bursts}: Search for FRBs at low energies
+\end{itemize}
+
+\subsection*{\textbf{\texttt{TauRunner} Optimization}}
+We recently wrote two papers \cite{Safa:2019ege, Aartsen:2020vir} that required a new Monte Carlo software to propagate ultra-high-energy tau neutrinos. As is pictured below, if a beam of $\nu_{\tau}$ is incident upon the Earth, the flux is not attenuated, it merely cascaed to lower energies. This is because the short lifetime of the $\tau$ gives rise to another $\nu_{\tau}$ from the lepton decay. We call this process ``$\nu_{\tau}$-regeneration''. 
+
+\begin{center}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (d1) {\(d\)}; 
+\vertex[right=5cm of d1] (u3) {\(u\)}; 
+\vertex[below=0.8em of d1] (u1) {\(u\)}; 
+\vertex[right=5cm of u1] (u2) {\(u\)};
+\vertex[below=0.8em of u1] (d2) {\(d\)}; 
+\vertex[right=5cm of d2] (d3) {\(d\)};
+\vertex[above right=0.4cm and 2.5cm of d1] (v1);
+\vertex[above=1.4cm of v1] (v2);
+\vertex[above left=1cm and 2cm of v2] (nu) {$\nu_{\tau}$};
+\vertex[right=3.5cm of v2] (e) {$\tau^-$};
+\diagram* { {[edges=fermion]
+(d1) -- (v1) -- (u3), (u1) -- (u2),
+(d2) -- (d3), (nu) -- (v2) -- (e)},
+(v1) -- [boson, edge label=\(W^{-}\)] (v2)
+};
+\draw [decoration={brace}, decorate] (d2.south west) -- (d1.north west) node [pos=0.5, left] {\(n\)};
+\draw [decoration={brace}, decorate] (u3.north east) --  (d3.south east) node [pos=0.5, right] {\(p\)};
+\end{feynman} 
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a) {\(\tau^{-}\)};
+\vertex [right=of a] (b);
+\vertex [above right=of b] (f1) {\(\nu_{\tau}\)};
+\vertex [below right=of b] (c);
+\vertex [above right=of c] (f2) {\(\overline \nu_{e},\overline \nu_{\mu},\overline u\)};
+\vertex [below right=of c] (f3) {\(e^{-},\mu^{-},d\)};
+\diagram* {
+(a) -- [fermion] (b) -- [fermion] (f1),
+(b) -- [boson, edge label'=\(W^{-}\)] (c),
+(c) -- [anti fermion] (f2),
+(c) -- [fermion] (f3),
+};
+\end{feynman}
+\end{tikzpicture}
+\end{center}
+The software that was written has a couple of shortcoming that could be fixed:
+\begin{itemize}
+    \itemsep-1em
+    \item \textbf{Secondaries}: In the picture above, one can see that this process results in 2 neutrinos for every tau decay. Right now, we only track the leading $\nu_{\tau}$.
+    \item \textbf{IceTray Interface}: We would like to get this code to play nicely with IceCube software to incorporate it into future collaboration analyses
+    \item \textbf{New analysis}: Ultra-high-energy $\nu_{\tau}$ from cosmogenic fluxes (proton interactions with the CMB) \cite{Greisen:1966jv, Zatsepin:1966jv, Allison:2018cxu, Ahlers:2010fw, Ahlers:2012rz, Heinze:2019jou, Murase:2015ndr, Murase:2014foa, Fang:2013vla, Boncioli:2018lrv, Biehl:2017hnb} should also cascade in energy like this and might be detectable by IceCube
+\end{itemize}
+
+\subsection*{\textbf{Fast Radio Bursts}}
+The enigmatic radio transients, Fast Radio Bursts \cite{Lorimer:2018rwi, Keane:2018jqo} have been predicted by some to emit neutrinos \cite{Li:2013kwa}. Some previous analyses have been performed \cite{Aartsen:2019wbt, Aartsen:2017zvw, Fahey:2016czk}, but there are other channels to look for this signal (cascade events, low energies), and the number of detected FRBs has increased dramatically, so stacking with the increased statistics could help.
+
+\subsection*{\textbf{Fast Response Analysis}}
+To rapidly respond to interesting astrophysical transients, we maintain a framework to quickly analyze IceCube data. In addition to running the actual analysis, we need help monitoring different outlets to find out if there are any sources worth following up.
+
+\subsection*{\textbf{Radio-$\nu$ Correlation}}
+Abhishek has begun an analysis to see if there is a correlation between neutrinos and radio-loud AGN, looking both for correlations with sources that are on average radio bright as well as for correlations with individual radio flares. There are various hypotheses to test, and many hands make light work.
+
+\subsection*{\textbf{Source Number density constraints}}
+A diffuse flux of neutrinos has been detected, but sources haev yet to be identified. One question to ask is: are there a few bright neutrino sources that create this flux or is it many dim sources? By looking in directions where you are confident there are neutrino sources (ie in the direction of our highest energy events), you can look for additional events to answer this question. We are working on a short timescale version of this, and plan to scale to longer timescales in the near future.
+
+\subsection*{\textbf{Gravitational Waves}}
+Raamis has been working on trying to find joint sources of gravitational waves and neutrinos. Right now, the analysis is focused on high energy tracks over short timescales. Possible future analyses include longer timescales, lower energies, and cascade event selections. 

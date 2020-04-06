@@ -1,0 +1,46 @@
+\chapter{March 3, 2020}
+
+%\section{Open Topics}
+
+\subsection*{\textbf{Tau regeneration and GZK}}
+Ibrahim reviews the problem: interactions nearby but outside the detector did not have all decay products tracked, and some muons came out backwards. When looking at muons that make it to final event selection, contamination at higher energies reaches upwards of 20\%. A new simulation set was submitted via simprod. Plan is to give an update and introduce the GZK analysis on a diffuse call in a few weeks.
+
+\subsection*{\textbf{Computing Needs}}
+Upcoming Scientific Computing Advisory Panel (SCAP) review: 
+\begin{itemize}
+    \itemsep-1em
+    \item NPX has been slow (over 50,000 idle jobs right now)
+    \item Disk system has been somewhat unreliable over recent years, more stable lately
+    \item Over the last year or so, the number of users tanking the cobalts has decreased
+    \item Not many cores on the \texttt{realtime} machine, makes some jobs slower to run on realtime machines although they tend to be more stable because few people use the machine
+    \item Problems with alert event scans killing GPUs
+    \item Carlos is happy with \texttt{cvmfs} over the last few years, especially building user specific \texttt{cvmfs} things
+    \item wiki page search doesn't work
+    \item increased documentation (SkyLab specifically)
+    \item It might be helpful to assign someone to work on Memory leaks as s service task
+\end{itemize}
+
+\subsection*{\textbf{Novae}}
+Brian Metzger requested a plot for a 1-10 day timescale sensitivity for a novae white paper. Might want to decouple a public effective area (maybe from Mia's or Jason's recent conference talks?) and a more in depth longer timescale Upgrade or GRECO sensitivity (either through the collaboration or otherwise)
+
+\chapter{March 10, 2020}
+
+\subsection*{\textbf{Tau regeneration and GZK}}
+Ibrahim showed $\nu_{\tau}$ effective areas for the diffuse $\nu_{\mu}$ selection, and at 100 TeV they are about 25\% the effective area for $\nu_{\mu}$. It does look like there might be a bit of a problem with flattening at higher energies that Carlos thinks shouldn't be there. Discussed checking to see if MEOWS or diffuse $\nu_{\mu}$ is more sensitive to this. Manuel is giving a talk in diffuse, we recommended he doesn't mention any of this stuff
+
+\subsection*{\textbf{FRB paper typo}}
+ping Ali again, encourage him to reach out to ApJ.
+
+\subsection*{\textbf{Gravitational Waves}}
+One week into collaboration review, no comments yet. Raamis will reach out to Zsuzsa for LIGO review. New ANTARES paper on O2 followups \cite{Molla:2020wsw}.
+
+Cascade analyses show a large spike for the most negative TS value, because the rate for the cascade sample is much smaller than that of GFU. Preliminary sensitivities are fairly consistent between the two samples, but some questions to look into include whether or not this is all flavor or per flavor.
+
+I suggested recreating Figure 1 from the GW paper but for the cascade sample to see if the intersection occurs right towards the median of the declination of GW150914. Fits are \textit{suspiciously} perfect, maybe just as a consequence of short timescale. Suggested to push out to larger time windows. Might also be worth it to calculate the fit $n_s$ at the location of the injected source, not just on the whole sky. Fits of $\gamma$ are inconsistent with the injected $\gamma=2.0$
+
+Next step is to include fluctuations in rates. Test would be to calculate median significance for parts of the year when there are maximal and minimal rates using both the all sky method and the declination band method. 
+
+\subsection*{\textbf{Abhishek: Number of sources}}
+Abhishek has looked into Eddington Bias. Looked at plot from Eddington bias paper \cite{Strotjohann:2018ufz}. Discussed including poisson fluctuations to map from flux to number of events and then sample from there, not just rescaling the sensitivity in flux space. Justin recommended interpolating the sensitivity curve (in terms of number of events) to get what it would be for a $\gamma = 2.5$ and then comparing poisson fluctuated number of events for each source to that to calculate the number of detected sources. 
+
+For blazar analysis, problem with mismatching hypotheses with likelihoods is fixed. Abhishek also shows overlap between MOJAVE and 3FHL source samples. Ibrahim suggested a scatter plot of radio flux and gamma-ray flux for the different samples. In some of these plots it might also be nice to compare to the total fraction of diffuse.
