@@ -1,0 +1,249 @@
+\chapter{April 7, 2020}
+\section{\texttt{TauRunner\_v2}}
+Ibrahim implemented some options that make checking with \texttt{nuTauSim} a lot easier, including: options to add ice layers as well as change between dipole and perturbative QCD cross sections. He also fixed a minor bug that was always reporting tau energies at decay instead of possibly upon exit, he fixed this, and is running some jobs to cross-check previous results (shouldn't change much). Nepomuk's student at Georgia Tech is comparing the two frameworks, which initiated these comparisons. 
+
+Justin and Carlos suggest putting some plots together and putting them on the repo to highlight the fact that \texttt{TauRunner} is self-consistent. Carlos also pointed us to the IceCube Earth Models.
+
+For the diffuse analysis, Ibrahim is looking at MEOWS effective areas. Almost at the point where Ibrahim might need to attach the simulations. Carlos wants to add the patching as \texttt{LeptonWeighter} functionality. 
+
+Diffuse call went well, WG is happy that people are looking into $\nu_{\tau}$ simulation, and the diffuse $\nu_{\mu}$ group is looking at including these. Brian clark also mentions non-GZK EeV sources (extreme EeV neutrino point sources). 
+
+\section{Gravitational Waves}
+Raamis submitted to arXiv yesterday and is waiting to give Maddie the okay for the news article. Raamis will submit to the journal and send the arXiv password to the review committee. Acknowledgements don't include any named authors or institutions, Raamis will ask Segev who to name. Raamis is working on updating the full table with results from O3b and needs to calculate all new $E_{\mathrm{iso}}$ upper limits (some O3a needed to be rerun after the radians bug).
+
+Raamis is also working on APS slides. He also reached out to Ali about reviewing, no response yet.
+
+\section{Radio stacking}
+Abhishek compares weights from sources that are in his analysis and other analyses. Suggestion to change ``IC86'' analysis to something like 2FHL. Question came up about why Federica excludes a band around the Galactic plane (does this account for the sources in Abhishek's catalog that are not in Federica's? Abhishek says it does for about 50). Ibrahim says that Federica weights by x-ray and IR which do extragalactic catalogs.
+
+Abhishek compares to a recent paper from authors not affiliated with IceCube that looked at VLBI sources. Justin suggests comparing to their full source list if possible. Plavin et al. uploaded a new version this week, might be worth checking to see if any claims in the paper changed.
+
+Will also include injecting $E^{-2.5}$ and start working on fit vs. injected plots.
+
+\section{Fast Response}
+I'm running steady trials for 8 years of GFU data on two years of alert events. Switched over to the 2 year of v2 alerts being shared with GBM. Need to figure out how to map from LLH to PDF, will reach out to Claudio for this. Also working on answering Theo's questions, Carlos suggested modifying the $\Delta LLH$ to include a correction term for low statistics exceptions to Wilk's.
+
+\chapter{April 21, 2020}
+\section{Conference planning}
+\textbf{APS}: Interesting talks: GW190412 overviews, Abhishek recommends AMEGO talks, CHIME FRB talk (up to several hundred, upgrade plans for better localization)
+
+\textbf{AAS}: Registration is due today, unsure if we have talks or posters yet, but still have to confirm that we will be attending. Should we change procedure for AAS based off of GW-Columbia interactions for APS. Planning on similar GW talk for AAS, but maybe will go through full approval process (not necessary, but could be nice to do). For novae, would be nice to get a full differential sensitivity curve similar to the ones we want to show Brian. For Abhishek, maybe targeting plot approval of sensitivity curves. Goal is to have plot approval ready for parallel talks during the collaboration meeting
+
+\textbf{Collaboration Meeting}: Talk requests due a week from today. Plan: Raamis on O3 wrap-up (maybe plenary?) / plots for approval and a cascade talk (maybe a two-week contribution as well), Ibrahim in diffuse for GZK and submitted abstract to Pheno 2020, Alex on number density and novae during collaboration meeting and externally triggered on nu-sources next week, Abhishek on radio and maybe on source number density (gong?)
+
+\textbf{Neutrino 2020}: Novae stuff might get put in the other GRECO contributions (Chujie and Michael). Two ANITA contributions, submit collaboration paper abstract to icecube-c by this Friday for submission by next friday to the conference, also encouraging Raamis and Abhishek to submit abstracts. Plot approval is necessary for Neutrino. 
+
+\section{$\tau$ and GZK}
+Joran updated fit to include new MC, and the diffuse numu fit is already softer (2.38) before even adding taus. Ibrahim is working on completing the MEOWS simulation. Goal is to redo fit with just a nutau astrophysical component by the collaboration meeting. Fits on MEOWS will just be on realizations.
+
+Email from NuPropEarth authors, mainly Alfonso, comparing TauRunner to NuPropEarth. Pretty good agreement right now, despite different implementations of earth layers, cross sections, etc. Might be a good idea to just look at the secondaries and ask the NuPropEarth folks to show distributions of just secondaries (like we did in the few author paper). 
+
+Ibrahim added an Earth Module so that users can tweak the number of layers used. Hallsie and Romero-Wolf requested some numbers for comparison.
+
+\section{Gravitational Waves}
+Updated version of $E_{\mathrm{iso}}$ upper limits with O1, O2, and O3 mergers. Suggestion to add "GW candidates with distance estimates" to clarify why the unmodeled burst is missing. Hypothesis: scatter due to declination distribution, maybe make a plot with $E_{\mathrm{iso}}$ with centroid declination. Maybe make gamma-ray point orange. 
+
+Raamis shows a check between the full calculation and a back of the envelope without the full marginalization, and overall there is pretty good agreement. Also shows a p-value distribution. I suggested sampling from the bg TS distributions to create what the expectation actually looks like. Also has a comparison of the 90\% error regions of GFU events compared to GW localizations. Will double check this plot for the floor implementation. Justin suggests also showing what it would look like for signal too. 
+
+For cascades, unable to reduce bias in fitting the spectral index. Raamis is looking into this.
+
+\section{Radio correlation analysis}
+Compared to the recent Plavin et al. paper. Justin asks about eventual quantitative comparison, Abhishek isn't sure because they didn't report such a number. Abhishek compares all of the sources that have been mentioned in IceCube followups in the last few years. 3 of the 4 sources from the $k=4$ in Tessa's analysis are in the sample, NGC 1068 is the one that is not.
+
+Abhishek also shows his bias tests for recovering injected signal with an injected $E^{-2}$. He also discusses his plans for how to calculate completeness.
+
+\section{Fast Response and Novae}
+Discussed comments with Theo, he is happy. Moved webpage to the roc website. Will try to talk on nu-sources this monday with just a short update of the externally triggered work so that I can dedicate my collaboration meeting talk to following up the IceCube alert events. Working on what to do with the skymap areas, thinking of just using the normalized likelihood maps. Paper plans: two separate or one big one?
+
+For novae, working on differential sensitivity curves as well as standard 10 day sensitivity curves
+
+\chapter{April 28, 2020}
+\section{Conference planning}
+Neutrino abstracts circulated to icecube-c, submit by this Friday. AAS confirmations by last week. Send drafts of collaboration meeting slides internally by this Friday, we may or may not have heard definitively about talk assignments by then. As of now, we will plan to hold our normal Tuesday meeting next week. Ibrahim is giving a talk at Pheno next Tuesday. 
+
+\section{$\tau$ (Ibrahim)}
+Ibrahim working on LeptonWeighter to do the weighting for the leptons, just be able to reuse the muons simulation that's ready. Preliminary checks are promising, but plots to come in the future. Ibrahim has a set of neutrinos through the normal simulation chain as well. Estimate is a few $\mu$ from $\nu_{\tau}$ above 100 TeV in 10 years of data assuming a certain spectrum. Asimov sensitivities to come after that. 
+
+\section{Radio Correlation (Abhishek}
+Some fighting with the cluster, but Abhishek has fitting tests for different injected spectra. Some jumpiness in the softer spectra, might be statistical. Justin suggested looking at the actual spectra instead of just the flux at a certain energy, maybe in the same fashion as Mehr in her recent nu-sources slides.
+
+Abhishek also has some overlays with comparing to the fraction of the diffuse flux. Numbers seem a bit overly constraining. Abhishek is also going to look into what he needs to do with tech leads to get his code approved.
+
+\section{Gravitational Waves (Raamis)}
+Raamis made a plot of $E_{\mathrm{iso}}$ vs. the centroid declination. Doesn't seem to be much of an trend (maybe slightly negative slope, consistent with what you might guess). Justin suggests plotting the residuals of the distance plot, to see if the additional scatter in the $r^2$ plot is due to declination.
+
+p-value distribution: Raamis did a KS test with both a uniform distribution as well as actually sampling from the p-value distributions. Double checked that the definition of the figure of merit in the KS test comparison, 
+
+\begin{equation*}
+    D_{n m}>\frac{1}{\sqrt{n}} \sqrt{-\frac{\ln \left(\frac{\alpha}{2}\right)\left(1+\frac{n}{m}\right)}{2}},
+\end{equation*}
+properly handles the sample size. Justin suggested doing a $\chi^2$ test as well.
+
+For cascades, Raamis looked into the gamma fits. Some weirdness with finding local minima, I suggested plotting with $n_s$ fixed to the maxima, not truth, or maybe making a 2d LLH scan with both parameters. Actual fitting vs. injected signal plots with cascades look \textit{weird}. Justin suggests sending some of this to Steve or Mike to see if they have helpful input.
+
+Carlos brought up a discussion on justifying the $E^{-2}$ spectral assumption for the upper limits. We discussed different approaches, such as doing it for different spectra or creating differential sensitivities. 
+
+Raamis is on the analysis call for Thursday to request plot approval. Justin had some suggestions on the plots:
+\begin{itemize}
+    \item $E_{\mathrm{iso}}$ vs. distance plot: events and candidates consistency, candidates should be singular for the cbc. Period for last sentence.
+    \item p-value distribution: Title changed to candidates. Borderline fontsize. Justin suggests adding the one with the sampled background distribution as well. 
+    \item For the GW vs neutrino localizations, switch to just one. Justin thinks maybe the signal one makes sense. Might make sense to make equal sized bins in log-space (Raamis will look into this though because aesthetically it might be hard). Justin also suggests avoiding ``GFU'' in favor of ``IC'' or something of the like.
+    \item Latency plot: maybe decrease sig figs in legend. Make sure there is a space between number and unit
+    \item Skymaps: Increasing the title font size. 
+    \item Zoomed in plots: increase font size, add fourth for completeness, maybe include full sky maps nearby as references
+\end{itemize}
+
+\section{Fast Response and Novae (Alex)}
+I showed some stuff.
+
+\chapter{May 5, 2020}
+\section{Virtual Collaboration Meeting: plans and progress}
+\subsection{Gong Talks}
+\textbf{Raamis Cascades (3:45):} Justin suggests that it might be nice to have some skymap sensitivity comparison on the point source sensitivity plots. Justin has a pet peeve about using ``ideal.'' Be explicit about flavor. Mention on slide 2 that it's $E^{-2}$. Specify discovery level on slide 3. Long term also want O3. Might want to emphasize that this sensitivity is flatter further out than you get with GFU. Specify that it's Mike Richman's sample in the beginning. Raamis will send .ppt source to Doga and follow up with him if he doesn't send a draft soon.
+
+\textbf{FIRESONG simulation (4:10):} Justin requested larger fontsize. ``Blazar'' sources is redundant, and it doesn't have to blazars, so it can just be ``sources''. Emphasize that the construction is as conservative as possible in the first slide. Text too small on slide 2. Maybe mention standard candle on slide 2. Maybe mention that it doesn't account for Eddington bias. Remove ``number of'' in first bullet on slide 3. Remove last column from table. Extra time could be used to talk about breaking the degeneracy between the low density and high density number of detections.
+
+\subsection{Parallel Talks}
+\textbf{Radio-AGN connection:} Maybe change title to ``Search for'' or ``Test for'' correlation. Correlation will help us $\rightarrow$ correlations would help us. Include slide numbers. Slide 6: inconsistent capitalization of MOJAVE. Might be nice to include the $E^{-3}$ as well, might want to specify injection is matching the hypothesis going into the weights. Just call the blue sensitivity. Orange line has the wrong power law. Abhishek will fix this and send around a new version when he has it. Fixed version: remove bottom panel and quote fixed factor
+
+\textbf{Novae:} Mention the spectra on slide one are from Anna's paper. Double check stacked result from Anna's paper. Maybe include the Brian quote in intro slide. SLide 5: subscript ns, slide 8: converting to scaling. Slide 9: mention all flavors or add the factor, change legend to GRECO, DeepCore. Slide 10: allows us. Add bullet about hoping to show some of these plots at Neutrino and AAS. Look into timeline for plot approval
+
+``More than likely we will need Gen 2 and a lot of luck (e.g. a very nearby nova) to detect a signal, but I have enough faith in the hadronic model that [it] is a pretty sure bet it's there.'' — Brian Metzger
+
+\section{Gravitational Waves (Raamis)}
+Raamis will forward reviewer comments to the committee, he talked about some of the reviewer's comments. 
+
+\chapter{May 12, 2020}
+\section{Doga's plenary slides}
+Raamis took notes for this part
+
+\section{Paper outline}
+\begin{itemize}
+    \item Remove extreme from title and abstract
+    \item Remove premier in abstract (maybe unique or just remove)
+    \item realtime pipeline instead of realtime data or low-latency data
+    \item analyses to followup analyses
+    \item analyses performed to YY date
+    \item synonym for pipeline in abstract
+    \item Maybe switch sections 3 and 4
+    \item Likelihood Analysis to Analysis Method
+    \item Maybe move appendices to results
+    \item 2 calendar years (ie 11-12) in legend, seasonal fit -> ``sinusoidal fit.'' Add a comment about the north vs. south. Maybe include some more information about the seasonal fits in the appendix or just in the main body.
+    \item Remove 50\% in legend
+    \item Figure 2: Move to the 90\% CL for, more xticks, consistent units and expressions in axis labels, too much space between DeltaT and ``s.'' Figure 4: maybe dotted between bins. Figure 3: Make the light gray darker
+    \item Figure 5: $\log_{10}$, captial Delta T, maybe start caption with more qualitative sentence: ``Statistical significance expected when detecting one event.''
+    \item Add a paragraph in the text about why the p-value distribution has the peak
+    \item Results table: Remove ``all'' in second sentence, ``and constrain''. Source names, add a type column in the table.
+    \item Maybe make some of the back of the envelopes into plots for the discussion section
+    \item Maybe change colormap for zoomed skymap
+\end{itemize}
+
+Maybe make an event view for the really weird event, maybe make some histograms of 50\% containment and stuff
+
+\chapter{May 19, 2020}
+\section{AAS and Neutrino Planning}
+
+\section{Gravitational Waves}
+Raamis updated the paper with reviewer comments and a small one from me. Paper includes updated $E_{\mathrm{iso}}$ plot with the PS band. Raamis will work on preparing an official response to the reviewer. News article looks good.
+
+Even with sparser binning things look a bit off, but less so at shorter timescales.
+
+\section{Abhishek}
+Abhishek is seeing some disagreement between his calculations and previous stacking analyses by about an order of magnitude (Abhishek's seem too constraining).
+
+\section{Taus}
+Came to a consensus that we don't really have anything to share with Stephanie. Maybe pitch the idea of a joint analysis?
+
+\chapter{May 26, 2020}
+\section{AAS Slides}
+\textbf{Abhishek}:
+\begin{itemize}
+\itemsep-1em
+    \item add ``for the IceCube Collaboration''
+    \item tweak the title to make it less general
+    \item Include affiliations on title slide
+    \item Tweak language on slide 6: ``perform a time-averaged source for . . . '' to emphasize the relationship is a part of the hypothesis
+    \item Remove histogram from slide 6
+    \item Ideally there would be an error band for the diffuse flux (like the butterfly) over the proper energy band
+    \item 3fHL has a small f in the legend
+    \item Some discussion about the placement of the different lines on the sensitivity plot
+    \item Simplify last bullet on slide 7 (don't mention blinded or preliminary)
+\end{itemize}
+
+\textbf{Raamis}:
+\begin{itemize}
+\itemsep-1em
+    \item Raamis shows some plots from running various signal injection trials
+    \item Promising results with a spatial only likelihood. Raamis is going to look into this a bit more systematically and submit a whole bunch of jobs to test this
+\end{itemize}
+
+\chapter{June 23, 2020}
+\section{$\tau$ and GZK (Ibrahim)}
+Trying to schedule a meeting with Stephanie. Topics for discussion: Why we don't have their effective areas, trying to figure out the scale of the project (size of the group, general PS versus following up ANITA-IV).
+
+Analysis progress a bit stalled, Ibrahim is working on running the new jobs on the new computing cluster through Harvard. Right now, Aachen is not including the separate $\tau$ component in the fit.
+
+\section{Gravitational Waves (Raamis)}
+Paper was accepted to ApJL, Imre reached out about adding acknowledgements during proofs. Raamis got the greenlight to move forward with the two week timescale analysis from his reviewers. Cluster has been down, so not all precomputed jobs finished. For cascades, there are still some items on the to do list for looking at the fits. Raamis working on making all of the relevant plots for the same time windows as tracks. He will get a slot on an upcoming call.
+
+\section{Radio stacking and sensitivity scaling vs. source density (Abhishek)}
+Cluster failures are holding up Abhishek. Abhishek is working on using Christoph Raab's lightcurve code, but there are some problems with python2 vs. python3 compatibility. Justin suggested comparing to something that might be related, where instead of using the lightcurve as a temporal term in the signal PDF, stacking independent observations, treating different time windows as different sources, and stacking those observations together. We talked a bit about if the likelihoods are equivalent, but aren't quite sure one way or the other.
+
+\section{Fast Response (Alex)}
+Showed some plots with updating the full 2d luminosity-density plane for 3 different transient time windows (1000 s, 2 days, 31 days), and for the time integrated case
+
+\section{Novae (Alex)}
+I showed a comparison of some LE event selections (GRECO, OscNext, Upgrade, ORCA). Some questions about Upgrade, I may reach out to Tom with any questions
+
+\section{Gravitational Waves with GRECO (Aswathi, Raamis, Alex)}
+
+
+\chapter{June 30, 2020}
+\section{Radio stacking (Abhishek)}
+
+
+\section{Gravitational Waves (Raamis)}
+Raamis about to resubmit the paper (got the okay from Segev for acknowledgements). Ali is the WG reviewer for the cascades analysis. No word back from Anna about the analysis call for the two-week search. Discussed a bit about the ZTF optical counterpart, which Raamis is working on including in his unblinding request. Raamis working on the cascade wiki, where he'll put the info for fitting the index
+
+\section{Fast Response (Alex)}
+
+
+\chapter{July 7, 2020}
+\section{$\tau$ and GZK (Ibrahim)}
+Ibrahim talked with Stephanie during his poster session. They think that the effective areas we used in our paper were possibly not accurate, she would like to do a rigorous comparison between our effective areas, with similar cross sections and such. They also talked about possibly doing a subthreshold analysis looking into the south pole masking in the ANITA analysis. Aswathi mentions that it might be hard to disentangle any signal from the direction of the ICL over the large constant background.
+
+Ibrahim offered to make a set of slides explaining what we did in the collaboration paper for the effective area to spell out everything. 
+
+For the GZK analysis, they need to add the splines to GolemFit. Ibrahim is planning on meeting with Jeff to discuss how to run the necessary monte carlo sets. Plan to revisit discussion with Shigeru after they get sensitivities (WG leads seemed confused by some of Shigeru's argument)
+
+\section{Radio stacking (Abhishek)}
+
+
+\section{Gravitational Waves (Raamis)}
+Finished running fit and injection tests. Index is a bit soft, recovered signal looks good. Reran sensitivities for a few events, there's an order of magnitude improvement for $E^{-2.5}$ with 7yr MESC vs. GFU when looking at GW150914. Working on finishing up the same comparison for GW170608. Justin suggests running cascades for all 3 available events (can only do O1 when it's time to run because of the date range of MESC).
+
+For the localization comparison plots, Raamis has median and 90\% plots, and will rerun the MC ones with weighting the MC event according to an $E^{-2}$ spectrum. Running jobs for 2 week events, analysis currently in collaboration review. Justin suggests making a fixed request for the optical counterpart and proposing that. Raamis received second set of proofs for the paper this morning. 
+
+\section{Low energy GWs (Aswathi)}
+Aswathi found some relevant papers about GeV neutrinos, most are about BNS or BHNS mergers with GRB progenitors. 
+
+Aswathi already has effective areas. We discussed why the curves decrease at higher energies, and it might be related to reconstructions failing for high charge events, but it looks smooth up to about 10 TeV. Justin suggests speaking on one of the upcoming GRECO calls. 
+
+Carlos mentioned an SLC bug that Tom is presenting on the Tuesday call, which could affect our analyses.
+
+\section{Fast Response (Alex)}
+Fix the time windows
+
+SLC hits Bug (Tom): There was a bug found in the SLC hits for simulation. It was traced to a bug in DOM launcher that results in a one bin offset in simulation by 25 ns (not in data). Preliminary checks to see if there were major changes. There were shifts in the reconstructed zenith angle distribution (fairly significant). Might be a shift from upgoing to downgoing and high energy to low energy systematically. This only affects monte carlo, but seems like a noticeable affect in monte carlo. As of yesterday, there is a new genie set with a bug fix, should expect a more detailed explanation soon. 
+
+\chapter{July 14, 2020}
+\section{Radio stacking (Abhishek)}
+Abhishek has been looking into what Stefan Coenders did in his scripts to see if he can get the same results with his data. Some higher stats might be necessary to flush out the full error band
+
+\section{Gravitational Waves (Raamis)}
+ 
+
+\section{Low energy GWs (Aswathi)}
+
+
+\section{Fast Response (Alex)}
