@@ -1,0 +1,17 @@
+\chapter{August 25, 2020}
+\section{Lightcurve stacking (Abhishek)}
+Abhishek is trying to combine some of Christoph Raab's code with some code that Raamis and I have written. We talked about some of the objects in Skylab that make the most sense to use for a lightcurve based analysis. Qinrui has experience with both Skylab and csky based lightcurve analyses, so Abhishek will likely discuss with her about some of the technical details.
+
+
+\section{Gravitational Waves (Raamis)}
+Raamis finished his upper limit calculation for the 2 week unblinding. He is working on S190910h differential upper limit. Ready to request a slot on the nu-sources call to present unblinding results, but if it looks like the differential UL won't take long, then Raamis says it makes sense to wait and show all of it.
+
+Raamis also showed a comparison between the TS from using a GW skymap with one pixel localization to using the point source implementation, and the TS values agree for a variety of background trials. For signal injection trials, there are small disagreements with the trials that are not very significant. I asked if it's related to the pixels that are being looked at because of the ``pixel scan'' function, and Raamis said he was wondering the same thing and will look into that. Aswathi asked about the negative infinity convention, and we also discussed whether or not the pixelization method is a grid of points or true pixelization. For cascades, Raamis is working on reproducibility requirements and answering some of Ali's questions 
+ 
+
+\section{Low energy GWs (Aswathi)}
+Aswathi showed the results of increased statistics fit bias tests. We discussed some technical questions about the skylab prior injector. Overall, it looks promising that you can do an analysis with the full GW localization and the poor event reconstructions from GRECO. 
+
+
+\section{Fast Response (Alex)}
+Transient background and signal injection trials for the alert event follow up are done, and I showed the BG TS and ns fit bias distributions from these trials. I also showed some distributions of the alert events (signalness, declination). There are 249 alerts, 2 different time windows, and the option to include or ignore systematic smearing of skymaps, so all things considered there are about 1000 different sets of background and signal injected distributions. I showed some summary plots of these distributions (as well as panel plots of all of the distributions, sorry for all the plots), and things look as they should, but I noticed some failed jobs and some weird sensitivity values that I'm double checking. I also automated the cascade followup, and it's running in realtime (on scrambled data) to test the pipeline.
