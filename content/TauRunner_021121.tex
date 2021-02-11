@@ -1,0 +1,37 @@
+\chapter{TauRunner meeting Feb. 11, 2021}
+
+\section{Ibrahim}
+Ibrahim will look into removing the nusquids dependencies and also refactoring TauRunner. Jeff has been helping out with removing the nusquids unit dependencies.
+
+\section{Oswaldo}
+Oswaldo shows a comparison against the Beacom paper for emergent flux as a function of nadir angle. He will rerun some of these tests with the bug fix and with CSMS. 
+
+Oswaldo will next compare to outgoing secondary spectra instead of just the number of secondaries that make it out. 
+
+Oswaldo is going to work on merging secondaries to master this week.
+
+\section{Jeff}
+Jeff wrote a new abstract class for spherical bodies. Options included to take either a linear track or a spherical body with either a set of distances and densities or a function describing the density profile. 
+
+We had some discussion about the fact that when moving to a function, we have to be careful about tau decay only depending on length whereas energy losses depend on column depth, but Jeff has an idea to deal with this and we will likely refactor code to do calculations in terms of column depth instead of distance.
+
+Still discussing the best unittests to test these out, Ibrahim suggests looking at what we have in \texttt{Earth.py} for tests.
+
+Add pyfiglet with the speed setting for installation
+
+\section{Alex}
+I'll set up the unittest stuff using the generic python \texttt{unittest}. I'll also set up the slack github integration after this meeting.
+
+Last week I fixed the power law bug and added the ability to do a fixed angle for a power law. 
+
+\section{Tests}
+\begin{enumerate}
+    \item Total number conservation (not including secondaries)
+    \item Check that we don't make more energy 
+    \item Check absorption matches exponential expectation
+    \item Check earth has right mass
+    \item Check density sampling against a table
+    \item Check CC/NC interaction ratio
+    \item TauDecay checks
+    \item Power-law checks (secondaries coming out comparing against a spline that we know is right)
+\end{enumerate}
