@@ -1,0 +1,21 @@
+\chapter{TauRunner meeting Feb. 18, 2021}
+
+\section{Ibrahim}
+Ibrahim is starting to rewrite the sampling in main to do everything in terms of column depth instead of distance. He and I will work in parallel even though we're both working on main and then we can deal with merge conflicts as they crop up (shouldn't be hard bc we are working on separate parts of main).
+
+Ibrahim began looking at making tables, but he needs some input from Carlos on the exact things contained in the tables.
+
+Ibrahim also sent a message to the PROPOSAL folks about adding the dipole cross-sections.
+
+\section{Jeff}
+Jeff's been working on the generalized track/body classes. Will likely merge with the master branch in the near future. Most of his new column depth conversions are working, but there is still a small bug in one of the column depth conversions.
+
+Jeff is also going to finish up changing the units to remove some dependencies.
+
+\section{Oswaldo}
+Current meeting time conflicts with Oswaldo's schedule. 
+
+\section{Alex}
+Began setting up \texttt{unittest}. In order to run unittests, we will need TauRunner to be importable, so I began to restructure \texttt{main.py} to have an importable function to run the Monte Carlo. 
+
+GitHub integration is working now on taurunner slack channel.
